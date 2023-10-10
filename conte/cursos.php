@@ -94,7 +94,7 @@ if (!isset($_SESSION["tipo_usuario"])) {
                         <iframe width="320" height="315" src="https://www.youtube.com/embed/uoxbduXry4A?si=vyB4-6CHC767aKKq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         <br>
                         <br>
-                        <a href="pruebas.php?id_prueba=1">Hacer Prueba</a>
+                        <a href="pruebas.php?id_prueba=2">Hacer Prueba</a>
                   </div>
                   <?php } ?>
               </div>

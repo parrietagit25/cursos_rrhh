@@ -5,6 +5,10 @@ $mensaje = "";
 if (!isset($_SESSION["tipo_usuario"])) {
   header("Location: ../index.php");
 }
+
+$ultimo_id = $pdo -> query("SELECT u.nombre, u.apellido, p.data_time, p.prueba FROM users u inner join pruebas p on u.id = p.id_user WHERE p.stat = 1");
+$rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -30,29 +34,38 @@ if (!isset($_SESSION["tipo_usuario"])) {
     <div class="container pt-5">
       <?php // <form action="" method="post"> ?>
         <div class="container">
-            <?php echo $mensaje; ?>
-            <?php $stmt = $pdo->query("SELECT id_prueba FROM pruebas WHERE id_user = '".$_SESSION["id"]."'"); ?>
-            <?php $prueba_1 = 0; ?>
-            <?php $prueba_2 = 0; ?>
-            <?php foreach ($stmt as $key => $value) {
-              if ($value['id_prueba'] == 1) {
-                 $prueba_1 = 1;
-              }elseif ($value['id_prueba'] == 2) {
-                 $prueba_2 = 1;
-              }
-            } ?>
-            <div class="container text-left" style="border: solid 1px #FADE24; padding:20px;">
-              <div class="row">
-                  <div class="col-12" style="border: solid 1px #FADE24; padding:20px;">
-                      <h2>Actos y condiciones inseguras</h2>
-                      <?php if($prueba_1 == 0){ ?><a href="cursos.php?id_curso=1">Hacer Curso</a> <?php }else{ ?> <span style="color:green"> Usted ya realizo este curso y aprobo la el test. </span> <?php } ?>
-                  </div>
-                  <div class="col-12" style="border: solid 1px #FADE24; padding:20px; margin-top:10px;">
-                      <h2>Prevención de Accidentes</h2>
-                      <?php if($prueba_1 == 0){ ?><a href="cursos.php?id_curso=2">Hacer Curso</a> <?php }else{ ?> <span style="color:green"> Usted ya realizo este curso y aprobo la el test. </span> <?php } ?>
-                  </div>
-              </div>
-          </div>
+        <h2>Ver Usuarios que terminaron los cursos</h2>
+        <br>
+        <br>
+        <table class="table" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Prueba</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($rows as $row) { ?>
+                <tr>
+                    <td><?php echo $row['nombre']; ?></td>
+                    <td><?php echo $row['apellido']; ?></td>
+                    <td><?php echo $row['data_time']; ?></td>
+                    <td><?php echo $row['prueba']; ?></td>
+                </tr>
+                <?php } ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Prueba</th>
+                    <th>Fecha</th>
+                </tr>
+            </tfoot>
+        </table>
+
         </div>
       <?php // </form> ?>
     </div>
