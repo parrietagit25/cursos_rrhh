@@ -51,8 +51,8 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <td><?php echo $row['nombre']; ?></td>
                     <td><?php echo $row['apellido']; ?></td>
-                    <td><?php echo $row['data_time']; ?></td>
                     <td><?php echo $row['prueba']; ?></td>
+                    <td><?php echo $row['data_time']; ?></td>
                 </tr>
                 <?php } ?>
             </tbody>

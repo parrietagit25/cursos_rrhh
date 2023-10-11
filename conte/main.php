@@ -49,7 +49,7 @@ if (!isset($_SESSION["tipo_usuario"])) {
                   </div>
                   <div class="col-12" style="border: solid 1px #FADE24; padding:20px; margin-top:10px;">
                       <h2>Prevención de Accidentes</h2>
-                      <?php if($prueba_1 == 0){ ?><a href="cursos.php?id_curso=2">Hacer Curso</a> <?php }else{ ?> <span style="color:green"> Usted ya realizo este curso y aprobo la el test. </span> <?php } ?>
+                      <?php if($prueba_2 == 0){ ?><a href="cursos.php?id_curso=2">Hacer Curso</a> <?php }else{ ?> <span style="color:green"> Usted ya realizo este curso y aprobo la el test. </span> <?php } ?>
                   </div>
               </div>
           </div>

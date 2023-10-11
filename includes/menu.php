@@ -13,7 +13,7 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Mantenimiento</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Reg. Ususarios</a></li>
+                    <li><a class="dropdown-item" href="reg_user.php">Reg. Ususarios</a></li>
                     <li><a class="dropdown-item" href="ver_cursos_realizados.php">Cursos realizados</a></li>
                 </ul>
                 </li>
